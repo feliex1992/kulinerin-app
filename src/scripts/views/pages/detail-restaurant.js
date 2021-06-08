@@ -14,31 +14,43 @@ const DetailRestaurant = {
 
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const restaurant = await RestaurantDbSource.detailRestaurant(url.id);
-    console.log(restaurant);
-    const categories = restaurant.categories.map((category) => ` ${category.name}`);
+    const {
+      name,
+      pictureId,
+      city,
+      address,
+      rating,
+      categories,
+      menus,
+      description,
+    } = restaurant;
+
+    let listMenuFoods = '';
+    menus.foods.forEach((food) => {
+      listMenuFoods += `<li>${food.name}</li>`;
+    });
 
     contentElement.innerHTML += `
-      <div class="container">
+      <div>
+        <h1 class="title__content title-detail">${name}</h1>
         <img 
           class="detail-image"
-          src="${CONFIG.BASE_IMAGE_URL_LARGE}${restaurant.pictureId}"
-          alt="${restaurant.name}"
+          src="${CONFIG.BASE_IMAGE_URL_LARGE}${pictureId}"
+          alt="${name}"
         >
         <div class="card container">
-          <h1 class="title__content">${restaurant.name}</h1>
-          <h3>${restaurant.city}</h3>
-          <p>${restaurant.address}</p>
-          <div class="rating-wrapper">
-            Rating : 
-            <div class="rating__star-wrapper">
-              <div class="rating__stars" style="--rating: ${Number(restaurant.rating)};" aria-label="Rating ${restaurant.name} adalah ${restaurant.rating} dari 5 bintang."></div>
-            </div>
-            <h2 class="rating__label-value">${restaurant.rating}</h2><span class="rating__label-total">/5</span>
-          </div>
-          <p>Kategori : ${categories}</p>
-          
-          <p>${restaurant.description}</p>
+          <h3>${city}</h3>
+          ${address}
+          <rating-item rating="${rating}" name="${name}"></rating-item>
         <div>
+
+        <p>Kategori : ${categories.map((categorie) => ` ${categorie.name}`)}</p>
+        <p><h3>Menu</h3><p>
+        Makanan
+        <ul>
+          ${listMenuFoods}
+        </ul>
+        <p>${description}</p>
       </div>
     `;
   },

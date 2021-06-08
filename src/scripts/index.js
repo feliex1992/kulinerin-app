@@ -3,6 +3,7 @@ import '../styles/styles.scss';
 
 import './views/components/NavBar';
 import './views/components/HeroElement';
+import './views/components/RatingItem';
 
 import './views/components/ListBlog';
 import './views/components/BlogItem';

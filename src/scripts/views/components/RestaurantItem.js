@@ -29,12 +29,7 @@ class RestaurantItem extends HTMLElement {
 
           <span class="restaurant-item__city">${this._city}</span>
 
-          <div class="rating-wrapper">
-            <div class="rating__star-wrapper">
-              <div class="rating__stars" style="--rating: ${Number(this._rating)};" aria-label="Rating ${this._name} adalah ${this._rating} dari 5 bintang."></div>
-            </div>
-            <h2 class="rating__label-value">${this._rating}</h2><span class="rating__label-total">/5</span>
-          </div>
+          <rating-item rating="${this._rating}" name="${this._name}"></rating-item>
           
           <p class="restaurant-item__description">${this._description}</p>
         </div>
