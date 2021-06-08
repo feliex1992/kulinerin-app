@@ -1,0 +1,14 @@
+@import './base/settings';
+@import './base/base';
+
+@import './fontawesome/scss/fontawesome.scss';
+@import './fontawesome/scss/solid.scss';
+@import './fontawesome/scss/brands.scss';
+
+@import './components/navbar';
+@import './components/hero';
+@import './components/latestBlogs';
+@import './components/listRestaurants';
+@import './components/map';
+@import './components/restaurantDetail';
+@import './components/skeleton';
