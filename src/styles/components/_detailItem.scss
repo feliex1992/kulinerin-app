@@ -1,0 +1,40 @@
+.detail-item {
+  display: grid;
+  margin: 30px auto;
+  grid-template-columns: 1fr 1fr;
+}
+
+.detail-item__image-wrapper {
+  position: relative;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #333333;
+  width: 130%;
+  height: 400px;
+}
+
+.detail-item__image {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  object-fit: cover;
+  object-position: center;
+}
+
+.detail-item__info-detail {
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+  position: relative;
+  width: 80%;
+  left: 20%;
+  top: 50%;
+  height: 200px;
+  padding: 30px;
+  background-color: #fff;
+
+}
+
+.info-detail {
+  width: 100%;
+}

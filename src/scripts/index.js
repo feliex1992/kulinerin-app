@@ -12,6 +12,10 @@ import './views/components/ListRestaurant';
 import './views/components/RestaurantItem';
 import './views/components/Map';
 
+import './views/components/DetailItem';
+import './views/components/DetailDescription';
+import './views/components/DetailMenu';
+
 import './utils/map-helper';
 import App from './views/app';
 

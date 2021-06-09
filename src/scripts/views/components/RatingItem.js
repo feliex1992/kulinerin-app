@@ -15,37 +15,38 @@ class RatingItem extends LitElement {
         align-items: center;
         min-width: 50%;
         min-height: 1.2rem;
-        .rating__star-wrapper {
-          background-color: #f3f3f3;
-          border-radius: 5px;
-          width: fit-content;
-          margin: 10px 0;
-          
-          .rating__stars {
-            --percent: calc(var(--rating) / 5 * 100%);
-            
-            display: inline-block;
-            font-size: $m-size;
-            font-family: Times; // make sure ★ appears correctly
-            line-height: 1;
-          
-            &::before {
-              content: '★★★★★';
-              background: linear-gradient(90deg, #fc0 var(--percent), #fff var(--percent));
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
-            }
-          }
-        }
+      }
       
-        .rating__label-value {
-          margin: auto 0 auto 10px;
-          font-size: $m-size;
-        }
+      .rating-wrapper .rating__star-wrapper {
+        background-color: #f3f3f3;
+        border-radius: 5px;
+        width: fit-content;
+        margin: 10px 0;
+        margin-left: 5px;
+      }
+
+      .rating-wrapper .rating__star-wrapper .rating__stars {
+        --percent: calc(var(--rating) / 5 * 100%);
+        display: inline-block;
+        font-size: 1.3rem;
+        font-family: Times;
+        line-height: 1;
+      }
       
-        .rating__label-total {
-          font-size: $s-size;
-        }
+      .rating-wrapper .rating__star-wrapper .rating__stars::before {
+        content: '★★★★★';
+        background: linear-gradient(90deg, #fc0 var(--percent), #fff var(--percent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      
+      .rating-wrapper .rating__label-value {
+        margin: auto 0 auto 10px;
+        font-size: 1.3rem;
+      }
+
+      .rating-wrapper .rating__label-total {
+        font-size: 1rem;
       }
     `;
   }
