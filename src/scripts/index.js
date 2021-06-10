@@ -16,6 +16,9 @@ import './views/components/DetailItem';
 import './views/components/DetailDescription';
 import './views/components/DetailMenu';
 import './views/components/DetailMenuList';
+import './views/components/DetailReview';
+import './views/components/DetailReviewSubmite';
+import './views/components/DetailReviewList';
 
 import './utils/map-helper';
 import App from './views/app';

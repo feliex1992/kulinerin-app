@@ -46,6 +46,8 @@ const DetailRestaurant = {
       <detail-description description="${description}"></detail-description>
 
       <detail-menu menus='${strMenus}'></detail-menu>
+
+      <detail-review></detail-review>
     `;
   },
 };

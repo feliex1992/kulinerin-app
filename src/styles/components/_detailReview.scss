@@ -1,0 +1,16 @@
+.detail-review {
+  background-color: #fff;
+  padding-top: 30px;
+}
+
+.detail-review__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px 0px;
+}
+
+.detail-review-list {
+  margin-left: 10px;
+  padding: 10px;
+  height: 80vh;
+}

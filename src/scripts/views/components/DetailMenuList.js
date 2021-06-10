@@ -12,12 +12,8 @@ class DetailMenuList extends LitElement {
       .card {
         border-style: solid;
         border-width: thin;
-        transition: 0.3s;
         border-radius: 5px;
-      }
-      
-      .card:hover {
-        border-color: #009efa;
+        background-color: rgba(0, 0, 0, 0.05);
       }
 
       .detail-menu__list {
