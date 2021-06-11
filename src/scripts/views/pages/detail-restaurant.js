@@ -14,6 +14,7 @@ const DetailRestaurant = {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const restaurant = await RestaurantDbSource.detailRestaurant(url.id);
     const {
+      id,
       name,
       pictureId,
       city,
@@ -22,12 +23,13 @@ const DetailRestaurant = {
       categories,
       description,
       menus,
+      customerReviews,
     } = restaurant;
     console.log(restaurant);
 
     const listCategories = categories.map((categorie) => ` ${categorie.name}`).sort().toString();
     const strMenus = JSON.stringify(menus);
-    console.log('Ini string: ', strMenus);
+    const strCustomerReviews = JSON.stringify(customerReviews);
 
     contentElement.innerHTML += `
       <div class="container">
@@ -47,7 +49,7 @@ const DetailRestaurant = {
 
       <detail-menu menus='${strMenus}'></detail-menu>
 
-      <detail-review></detail-review>
+      <detail-review customerReviews='${strCustomerReviews}' idRestaurant="${id}"></detail-review>
     `;
   },
 };

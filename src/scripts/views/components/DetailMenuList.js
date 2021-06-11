@@ -13,7 +13,7 @@ class DetailMenuList extends LitElement {
         border-style: solid;
         border-width: thin;
         border-radius: 5px;
-        background-color: rgba(0, 0, 0, 0.05);
+        background-color: #f2f2f2;
       }
 
       .detail-menu__list {

@@ -4,13 +4,13 @@
 }
 
 .detail-review__wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   padding: 10px 0px;
+  max-width: 900px;
+  margin: 0px auto;
 }
 
 .detail-review-list {
-  margin-left: 10px;
+  margin-top: 10px;
   padding: 10px;
   height: 80vh;
 }

@@ -1,6 +1,6 @@
 class DetailMenu extends HTMLElement {
   connectedCallback() {
-    this._menus = this.getAttribute('menus') || '-';
+    this._menus = this.getAttribute('menus') || '{}';
     this.render();
   }
 

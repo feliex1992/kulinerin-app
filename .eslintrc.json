@@ -22,6 +22,8 @@
         "no-use-before-define": "off",
         "no-shadow": "off",
         "eqeqeq": "off",
-        "no-plusplus": "off"
+        "no-plusplus": "off",
+        "no-return-assign": "off",
+        "no-param-reassign": "off"
     }
 }
