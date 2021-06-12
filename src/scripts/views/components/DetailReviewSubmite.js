@@ -87,6 +87,7 @@ class DetailReviewSubmite extends LitElement {
         inputReview,
       );
 
+      console.log(result);
       const detailReview = document.querySelector('detail-review');
       detailReview.setCustomerReviews(JSON.stringify(result.customerReviews));
 

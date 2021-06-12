@@ -6,18 +6,24 @@ class DetailReview extends HTMLElement {
   }
 
   setCustomerReviews(customerReviews) {
-    this._customerReviews = customerReviews;
-    this.render();
+    const lastReview = JSON.parse(customerReviews).reverse()[0];
+
+    const newElementReviewItem = document.createElement('detail-review-item');
+    newElementReviewItem.setAttributeReview(lastReview.name, lastReview.review, lastReview.date);
+
+    const elementDetailReview = document.querySelector('.detail-review__wrapper');
+    const elementBefore = document.querySelector('detail-review-item');
+    elementDetailReview.insertBefore(newElementReviewItem, elementBefore);
   }
 
   render() {
-    const customerReviews = JSON.parse(this._customerReviews);
+    const customerReviews = JSON.parse(this._customerReviews).reverse();
     const idRestaurant = this._idRestaurant;
 
     let elementCustomerReviews = '';
     customerReviews.forEach((customerReview) => elementCustomerReviews += `
       <detail-review-item 
-        nama="${customerReview.name}"
+        name="${customerReview.name}"
         review="${customerReview.review}"
         date="${customerReview.date}"
       ></detail-review-item>

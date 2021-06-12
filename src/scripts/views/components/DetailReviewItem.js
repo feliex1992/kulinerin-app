@@ -3,9 +3,16 @@ import { LitElement, html, css } from 'lit-element';
 class DetailReviewItem extends LitElement {
   constructor() {
     super();
-    this._nama = this.getAttribute('nama') || '-';
+    this._name = this.getAttribute('name') || '-';
     this._review = this.getAttribute('review') || '-';
     this._date = this.getAttribute('date') || '-';
+    this.render();
+  }
+
+  setAttributeReview(name, review, date) {
+    this._name = name;
+    this._review = review;
+    this._date = date;
     this.render();
   }
 
@@ -40,13 +47,13 @@ class DetailReviewItem extends LitElement {
   }
 
   render() {
-    const nama = this._nama;
+    const name = this._name;
     const review = this._review;
     const date = this._date;
 
     return html`
       <div class="list-item__wrapper">
-        <h3>${nama}</h3>
+        <h3>${name}</h3>
         <div class="review-wrapper">
           <q>${review}</q>
         </div>
