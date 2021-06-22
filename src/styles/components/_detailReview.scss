@@ -1,12 +1,21 @@
+.review__title {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
 .detail-review {
   background-color: #fff;
   padding-top: 30px;
 }
 
+.detail-review__content {
+  margin: 0px auto;
+  max-width: 900px;
+}
+
 .detail-review__wrapper {
   padding: 10px 0px;
-  max-width: 900px;
-  margin: 0px auto;
+  margin: 30px;
 }
 
 .detail-review-list {

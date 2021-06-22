@@ -1,7 +1,10 @@
 import CONFIG from '../../globals/config';
+import { SKELETON_DETAIL_ITEM } from '../../../templates/theme';
 
 class DetailItem extends HTMLElement {
   connectedCallback() {
+    this._statLoading = this.getAttribute('statLoading') || 'false';
+
     this._pictureId = this.getAttribute('pictureId') || '-';
     this._name = this.getAttribute('name') || '-';
     this._city = this.getAttribute('city') || '-';
@@ -18,28 +21,33 @@ class DetailItem extends HTMLElement {
     const address = this._address;
     const rating = this._rating;
     const categories = this._categories;
+    const statLoading = this._statLoading;
 
-    this.innerHTML = `
-      <div tabindex="0" class="detail-item container">
-        <div class="detail-item__image-wrapper">
-          <img 
-            class="detail-item__image"
-            src="${CONFIG.BASE_IMAGE_URL_LARGE}${pictureId}"
-            alt="${name}"
-          >
-        </div>
-        
-        <div class="detail-item__info-detail card">
-          <div class="info-detail">
-            <h3>${city}</h3>
-            <p>${address}</p>
-            <br>
-            <p>Kategori Menu : ${categories}</p>
-            <rating-item rating="${rating}" name="${name}"></rating-item>
+    if (statLoading === 'true') {
+      this.innerHTML = SKELETON_DETAIL_ITEM;
+    } else {
+      this.innerHTML = `
+        <div tabindex="0" class="detail-item container">
+          <div class="detail-item__image-wrapper">
+            <img 
+              class="detail-item__image"
+              src="${CONFIG.BASE_IMAGE_URL_LARGE}${pictureId}"
+              alt="${name}"
+            >
+          </div>
+          
+          <div class="detail-item__info-detail card">
+            <div class="info-detail">
+              <h3>${city}</h3>
+              <p>${address}</p>
+              <br>
+              <p>Kategori Menu : ${categories}</p>
+              <rating-item rating="${rating}" name="${name}"></rating-item>
+            </div>
           </div>
         </div>
-      </div>
-    `;
+      `;
+    }
   }
 }
 

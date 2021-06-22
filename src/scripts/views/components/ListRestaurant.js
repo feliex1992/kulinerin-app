@@ -1,7 +1,10 @@
+import FavoriteRestaurantIdb from '../../data/favoriterestaurant-idb';
 import RestaurantDbSource from '../../data/restaurantdb-source';
 
 class ListRestaurant extends HTMLElement {
   connectedCallback() {
+    this._titleList = this.getAttribute('titleList') || 'Daftar Restoran';
+    this._statusFavorite = this.getAttribute('loaderPage') || 'home';
     this._statLoading = true;
     this._restaurants = [];
     this.render();
@@ -9,12 +12,17 @@ class ListRestaurant extends HTMLElement {
   }
 
   async _getDataRestaurant() {
-    this._restaurants = await RestaurantDbSource.getListRestaurant();
+    if (this._statusFavorite === 'home') {
+      this._restaurants = await RestaurantDbSource.getListRestaurant();
+    } else {
+      this._restaurants = await FavoriteRestaurantIdb.getAllRestaurant();
+    }
     this._statLoading = false;
     this.render();
   }
 
   render() {
+    const titleList = this._titleList;
     const statLoading = this._statLoading;
     const restaurants = this._restaurants;
 
@@ -63,7 +71,7 @@ class ListRestaurant extends HTMLElement {
 
     this.innerHTML = `
       <div class="list-restaurant">
-        <h2 tabindex="0" class="list-restaurant__title title__content">Daftar Restoran</h2>
+        <h2 tabindex="0" class="list-restaurant__title title__content">${titleList}</h2>
         <div class="list-restaurant__content">
           ${restaurantItem}
         </div>

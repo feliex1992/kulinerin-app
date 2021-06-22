@@ -1,5 +1,6 @@
 import UrlParser from '../../routes/url-parser';
 import RestaurantDbSource from '../../data/restaurantdb-source';
+import { SKELETON_DETAIL_RESTAURANT } from '../../../templates/theme';
 
 const DetailRestaurant = {
   async render() {
@@ -12,6 +13,8 @@ const DetailRestaurant = {
     const contentElement = document.querySelector('#content');
 
     const url = UrlParser.parseActiveUrlWithoutCombiner();
+
+    contentElement.innerHTML = SKELETON_DETAIL_RESTAURANT;
     const restaurant = await RestaurantDbSource.detailRestaurant(url.id);
     const {
       id,
@@ -28,11 +31,12 @@ const DetailRestaurant = {
     console.log(restaurant);
 
     const listCategories = categories.map((categorie) => ` ${categorie.name}`).sort().toString();
+    const strRestaurant = JSON.stringify(restaurant);
     const strMenus = JSON.stringify(menus);
     const strCustomerReviews = JSON.stringify(customerReviews);
 
-    contentElement.innerHTML += `
-      <div class="container">
+    contentElement.innerHTML = `
+      <div class="container title-detail__wrapper">
         <h1 class="title__content title-detail">${name}</h1>
       </div>
 
@@ -50,6 +54,8 @@ const DetailRestaurant = {
       <detail-menu menus='${strMenus}'></detail-menu>
 
       <detail-review customerReviews='${strCustomerReviews}' idRestaurant="${id}"></detail-review>
+
+      <like-button idRestaurant="${id}" restaurant='${strRestaurant}'></like-button>
     `;
   },
 };

@@ -6,9 +6,9 @@ const CONFIG = {
   BASE_IMAGE_URL_LARGE: 'https://restaurant-api.dicoding.dev/images/large/',
   DEFAULT_LANGUAGE: 'en-us',
   CACHE_NAME: new Date().toISOString(),
-  DATABASE_NAME: 'movie-catalogue-database',
+  DATABASE_NAME: 'restaurant-database',
   DATABASE_VERSION: 1,
-  OBJECT_STORE_NAME: 'movies',
+  OBJECT_STORE_NAME: 'restaurants',
   WEB_SOCKET_SERVER: 'wss://movies-feed.dicoding.dev',
 };
 

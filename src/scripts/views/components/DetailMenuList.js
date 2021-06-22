@@ -18,12 +18,7 @@ class DetailMenuList extends LitElement {
 
       .detail-menu__list {
         padding: 10px;
-        width: 90%;
-        margin: 5px;
-      }
-
-      .detail-menu__list li {
-        margin-left: 20px;
+        width: 100%;
       }
     `;
   }
@@ -32,7 +27,7 @@ class DetailMenuList extends LitElement {
     const menu = this._menu;
 
     return html`
-      <div class="detail-menu__list card"><li>${menu}</li></div>
+      <div class="detail-menu__list card">${menu}</div>
     `;
   }
 }

@@ -1,4 +1,6 @@
 import 'regenerator-runtime'; /* for async await transpile */
+import './utils/reg-sw';
+
 import '../styles/styles.scss';
 
 import './views/components/NavBar';
@@ -19,6 +21,7 @@ import './views/components/DetailMenuList';
 import './views/components/DetailReview';
 import './views/components/DetailReviewSubmite';
 import './views/components/DetailReviewItem';
+import './views/components/LikeButton';
 
 import './utils/map-helper';
 import App from './views/app';

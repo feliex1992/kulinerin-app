@@ -1,11 +1,9 @@
 const Favorite = {
   async render() {
     return `
-      <h1>Ini favorite page.</h1>
-      <h1>Ini favorite page.</h1>
-      <h1>Ini favorite page.</h1>
-      <h1>Ini favorite page.</h1>
-      <h1>Ini favorite page.</h1>
+    <div class="container favorite-wrapper">
+      <list-restaurant titleList="Restoran Favorite" loaderPage="favorite"></list-restaurant>
+    </div>
     `;
   },
 
