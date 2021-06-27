@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html } from 'lit-element';
 
 class DetailReviewItem extends LitElement {
   constructor() {
@@ -16,36 +16,6 @@ class DetailReviewItem extends LitElement {
     this.render();
   }
 
-  static get styles() {
-    return css`
-      .list-item__wrapper {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        transition: 0.3s;
-        border-radius: 5px;
-        padding: 10px;
-        margin-top: 10px;
-      }
-
-      .list-item__wrapper:hover {
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-      }
-
-      h3 {
-        text-align: center;
-        border-bottom: 1px solid #d6dae0;
-      }
-
-      .review-wrapper {
-        border-radius: 5px;
-        padding: 10px;
-      }
-
-      p {
-        text-align: right;
-      }
-    `;
-  }
-
   render() {
     const name = this._name;
     const review = this._review;
@@ -53,13 +23,17 @@ class DetailReviewItem extends LitElement {
 
     return html`
       <div class="list-item__wrapper">
-        <h3>${name}</h3>
+        <h3 class="reviewer-name">${name}</h3>
         <div class="review-wrapper">
           <q>${review}</q>
         </div>
-        <p><i>${date}</i></p>
+        <p class="review-date"><i>${date}</i></p>
       </div>
     `;
+  }
+
+  createRenderRoot() {
+    return this;
   }
 }
 

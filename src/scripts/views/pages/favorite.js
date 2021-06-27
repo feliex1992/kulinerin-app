@@ -1,14 +1,16 @@
 const Favorite = {
   async render() {
     return `
-    <div class="container favorite-wrapper">
-      <list-restaurant titleList="Restoran Favorite" loaderPage="favorite"></list-restaurant>
-    </div>
+      <div class="container favorite-wrapper"></div>
     `;
   },
 
   async afterRender() {
-    console.log('Ok ini');
+    const wrapperElement = document.querySelector('.favorite-wrapper');
+
+    wrapperElement.innerHTML = `
+      <list-restaurant titleList="Restoran Favorite" loaderPage="favorite"></list-restaurant>
+    `;
   },
 };
 

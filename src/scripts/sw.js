@@ -12,7 +12,12 @@ workbox.precaching.precacheAndRoute([
   { url: '/index.html', revision: '1' },
   { url: '/bundle.js', revision: '1' },
   { url: '/images/heros/hero-image_4.jpg', revision: '1' },
+  { url: '/images/connection-lost.json', revision: '1' },
   { url: '/assets/manifest.json', revision: '1' },
+  { url: '/assets/favicon.ico', revision: '1' },
+  { url: '/assets/favicon-16x16.png', revision: '1' },
+  { url: '/assets/favicon-32x32.png', revision: '1' },
+  { url: '/assets/favicon-48x48.png', revision: '1' },
   { url: '/assets/android-chrome-36x36.png', revision: '1' },
   { url: '/assets/android-chrome-48x48.png', revision: '1' },
   { url: '/assets/android-chrome-72x72.png', revision: '1' },
@@ -22,6 +27,12 @@ workbox.precaching.precacheAndRoute([
   { url: '/assets/android-chrome-256x256.png', revision: '1' },
   { url: '/assets/android-chrome-384x384.png', revision: '1' },
   { url: '/assets/android-chrome-512x512.png', revision: '1' },
+  { url: '/webfonts/fa-solid-900.eot', revision: '1' },
+  { url: '/webfonts/fa-solid-900.svg', revision: '1' },
+  { url: '/webfonts/fa-solid-900.ttf', revision: '1' },
+  { url: '/webfonts/fa-solid-900.woff', revision: '1' },
+  { url: '/webfonts/fa-solid-900.woff2', revision: '1' },
+  { url: 'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js', revision: '1' },
 ]);
 
 workbox.routing.registerRoute(
@@ -40,52 +51,22 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-  '/assets/manifest.json',
+  '/images/connection-lost.json',
   workbox.strategies.cacheOnly(),
 );
 
 workbox.routing.registerRoute(
-  '/assets/android-chrome-36x36.png',
+  'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js',
   workbox.strategies.cacheOnly(),
 );
 
 workbox.routing.registerRoute(
-  '/assets/android-chrome-48x48.png',
+  '/assets/*',
   workbox.strategies.cacheOnly(),
 );
 
 workbox.routing.registerRoute(
-  '/assets/android-chrome-72x72.png',
-  workbox.strategies.cacheOnly(),
-);
-
-workbox.routing.registerRoute(
-  '/assets/android-chrome-96x96.png',
-  workbox.strategies.cacheOnly(),
-);
-
-workbox.routing.registerRoute(
-  '/assets/android-chrome-144x144.png',
-  workbox.strategies.cacheOnly(),
-);
-
-workbox.routing.registerRoute(
-  '/assets/android-chrome-192x192.png',
-  workbox.strategies.cacheOnly(),
-);
-
-workbox.routing.registerRoute(
-  '/assets/android-chrome-256x256.png',
-  workbox.strategies.cacheOnly(),
-);
-
-workbox.routing.registerRoute(
-  '/assets/android-chrome-384x384.png',
-  workbox.strategies.cacheOnly(),
-);
-
-workbox.routing.registerRoute(
-  '/assets/android-chrome-512x512.png',
+  '/webfonts/*',
   workbox.strategies.cacheOnly(),
 );
 

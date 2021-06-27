@@ -18,16 +18,16 @@ class DetailMenu extends HTMLElement {
       this.innerHTML = SKELETON_DETAIL_MENU;
     } else {
       menus.foods.forEach((food) => {
-        foodMenus += `<li><detail-menu-list menu="${food.name}"></detail-menu-list></li>`;
+        foodMenus += `<li><detail-menu-list menu="${food.name}" aria-label="${food.name}"></detail-menu-list></li>`;
       });
 
       menus.drinks.forEach((drink) => {
-        drinkMenus += `<li><detail-menu-list menu="${drink.name}"></detail-menu-list></li>`;
+        drinkMenus += `<li><detail-menu-list menu="${drink.name}" aria-label="${drink.name}"></detail-menu-list></li>`;
       });
 
       this.innerHTML = `
         <div class="detail-menu">
-          <div class="container">
+          <div class="container" tabindex="0">
             <h2 class="title__content menu__title">Daftar Menu</h2>
             <div class="detail-menu__list">
               <div class="list__group card">

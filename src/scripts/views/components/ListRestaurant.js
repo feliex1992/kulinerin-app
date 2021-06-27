@@ -1,12 +1,14 @@
 import FavoriteRestaurantIdb from '../../data/favoriterestaurant-idb';
 import RestaurantDbSource from '../../data/restaurantdb-source';
+import { ERROR_CONNECTION } from '../../../templates/theme';
 
 class ListRestaurant extends HTMLElement {
   connectedCallback() {
     this._titleList = this.getAttribute('titleList') || 'Daftar Restoran';
     this._statusFavorite = this.getAttribute('loaderPage') || 'home';
     this._statLoading = true;
-    this._restaurants = [];
+    this._restaurants = JSON.parse(this.getAttribute('restaurants')) || [];
+    console.log(this._restaurants);
     this.render();
     this._getDataRestaurant();
   }
@@ -28,20 +30,22 @@ class ListRestaurant extends HTMLElement {
 
     let restaurantItem = '';
 
-    if (statLoading) {
+    if (restaurants.error) {
+      restaurantItem = ERROR_CONNECTION;
+    } else if (statLoading) {
       for (let x = 0; x < 5; x++) {
         restaurantItem += `
-          <restaurant-item
-            statLoading="true"
-            tabindex="0"
-            id="${x}"
-            name="name"
-            description="description"
-            pictureId="pictureId"
-            city="city"
-            rating="rating"
-          ></restaurant-item>
-        `;
+            <restaurant-item
+              statLoading="true"
+              tabindex="0"
+              id="${x}"
+              name="name"
+              description="description"
+              pictureId="pictureId"
+              city="city"
+              rating="rating"
+            ></restaurant-item>
+          `;
       }
     } else {
       restaurants.forEach((restaurant) => {
@@ -55,17 +59,17 @@ class ListRestaurant extends HTMLElement {
         } = restaurant;
 
         restaurantItem += `
-          <restaurant-item
-            tabindex="0"
-            statLoading="false"
-            id="${id}"
-            name="${name}"
-            description="${description}"
-            pictureId="${pictureId}"
-            city="${city}"
-            rating=${rating}
-          ></restaurant-item>
-        `;
+            <restaurant-item
+              tabindex="0"
+              statLoading="false"
+              id="${id}"
+              name="${name}"
+              description="${description}"
+              pictureId="${pictureId}"
+              city="${city}"
+              rating=${rating}
+            ></restaurant-item>
+          `;
       });
     }
 

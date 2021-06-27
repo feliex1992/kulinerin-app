@@ -1,3 +1,4 @@
+import { ERROR_CONNECTION } from '../../../templates/theme';
 import RestaurantDbSource from '../../data/restaurantdb-source';
 
 class ListBlog extends HTMLElement {
@@ -20,7 +21,9 @@ class ListBlog extends HTMLElement {
 
     let blogItem = '';
 
-    if (statLoading) {
+    if (blogContent.error) {
+      blogItem = ERROR_CONNECTION;
+    } else if (statLoading) {
       for (let x = 0; x < 3; x++) {
         const rightItem = (((x + 1) % 2) === 0 ? 'right="true"' : '');
         blogItem += `<blog-item statLoading="${statLoading}" ${rightItem}></blog-item>`;

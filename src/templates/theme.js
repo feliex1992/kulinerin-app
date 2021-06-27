@@ -89,7 +89,26 @@ const SKELETON_DETAIL_REVIEW = `
   </div>
 `;
 
+const ERROR_CONNECTION = `
+  <div class="error-content">
+    <div class="image-wrapper">
+      <lottie-player 
+        src="images/connection-lost.json"
+        background="transparent"
+        speed="1"
+        style="width: 300px; height: 300px;"
+        loop autoplay
+      ></lottie-player>
+    </div>
+    <div class="content-wrapper">
+      <h2>No connection</h2>
+      <p>Please check your internet connection <br>and try again.</p>
+    </div>
+  </div>
+`;
+
 module.exports = {
+  ERROR_CONNECTION,
   SKELETON_BLOG_ITEM,
   SKELETON_RESTAURANT_ITEM,
   SKELETON_DETAIL_RESTAURANT,

@@ -16,7 +16,7 @@ class DetailDescription extends HTMLElement {
     } else {
       this.innerHTML = `
         <div class="detail-description">
-          <div class="container">
+          <div class="container" tabindex="0">
             <h2 class="title__content description__title">Tentang Restaurant</h2>
             <div class="description__content">
               <p>${description}</p>

@@ -33,12 +33,13 @@ class DetailReview extends HTMLElement {
           name="${customerReview.name}"
           review="${customerReview.review}"
           date="${customerReview.date}"
+          tabindex="0"
         ></detail-review-item>
       `);
 
       this.innerHTML = `
         <div class="detail-review">
-          <div class="container">
+          <div class="container" tabindex="0">
             <h2 class="title__content review__title">Ulasan Pelanggan</h2>
             <div class="detail-review__content">
               <div class="detail-review__wrapper">
